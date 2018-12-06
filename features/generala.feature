@@ -4,10 +4,14 @@ Scenario: Pagina inicial
 	Given llego al inicio
 	Then debo ver "Generala"
 
-Scenario: Pagina Inicial veo dados 1 2 3 4 5
+Scenario: Pagina Inicial veo dados
 Given llego al inicio
-	Then debo ver "1" And
-	Then debo ver "2" And
-	Then debo ver "3" And
-	Then debo ver "4" And
-	Then debo ver "5" 
+	Then debo ver "<li>"
+
+Scenario: Pagina Inicial veo  
+Given llego al inicio
+When jugador tira dados
+Then debo ver "Generala"
+
+
+ 
