@@ -4,7 +4,8 @@ class Generala
 		@puntos = 0
 	end
 	def getDados
-		@dados = [rand(6), rand(6), rand(6), rand(6), rand(6)]
+		@dados = [rand(6) + 1, rand(6) + 1, rand(6) + 1, rand(6) + 1, rand(6) + 1]
+		
 		return @dados
 	end
 
