@@ -1,15 +1,16 @@
 class Generala
 	def initialize 
-		@dados = [1, 2, 3, 4, 5]
+		@dados = []
 		@puntos = 0
 	end
+	
 	def getDados
-		@dados = [rand(6) + 1, rand(6) + 1, rand(6) + 1, rand(6) + 1, rand(6) + 1]
-		
 		return @dados
 	end
-
+			
+	
 	def tirarDados
+		@dados = [rand(6) + 1, rand(6) + 1, rand(6) + 1, rand(6) + 1, rand(6) + 1]
 		return getDados
 	end
 	def getDadosOrdenados
@@ -29,12 +30,22 @@ class Generala
 		return ok
 	end
 	
-def getIsFull
-		ok = false		
-		dadosOrd = getDadosOrdenados
-		if dadosOrd[0] != dadosOrd[4] and dadosOrd[1] != dadosOrd[2] and dadosOrd[1] == dadosOrd[0] and dadosOrd[2] == dadosOrd[4]
-			ok = true
-		end
-		return ok
+	def getIsFull
+			ok = false		
+			dadosOrd = getDadosOrdenados
+			if dadosOrd[0] != dadosOrd[4] and dadosOrd[1] != dadosOrd[2] and dadosOrd[1] == dadosOrd[0] and dadosOrd[2] == dadosOrd[4]
+				ok = true
+			end
+			return ok
+	end
+
+
+	def getIsGenerala
+			ok = false		
+			dadosOrd = getDadosOrdenados
+			if dadosOrd[0] == dadosOrd[4]
+				ok = true
+			end
+			return ok
 	end
 end
