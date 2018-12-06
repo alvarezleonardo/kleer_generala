@@ -1,0 +1,12 @@
+<h1>Generala</h1>
+<form method="post" action="/tirardados" >
+	<ul>
+		<%
+		@@generala.getDados.each do |dado| %>
+			<li><%= dado %></li>
+		<% end %>
+	</ul>
+	<input type="submit" value="Tirar dados"/>
+</form>
+
+
