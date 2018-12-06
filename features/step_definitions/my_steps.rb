@@ -6,8 +6,8 @@ Then(/^debo ver "(.*?)"$/) do |text|
   last_response.body.should =~ /#{text}/m
 end
 
-Then(/^debo ver "(.*?)" And$/) do |text|
-  last_response.body.should =~ /#{text}/m
+Then(/^debo ver Lista de dados$/) do
+  last_response.body.should =~ /<li>/m
 end
 
 When(/^jugador tira dados$/) do
