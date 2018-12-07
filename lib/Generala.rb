@@ -5,12 +5,15 @@ class Generala
 		@dadosPrueba = nil
 		@puntos = 0
 		@puntosMano = 0
+		@juegoActual = ""
 	end
 	
 	def getDados
 		return @dados
 	end
-			
+	def getJuegoCompleto
+			return @juego
+	end		
 	def setDados dadosPrueba
 		@dadosPrueba = dadosPrueba
 	end
@@ -28,7 +31,12 @@ class Generala
 	def acumularPuntos 
 		@puntos += getPuntoMano
 	end
-
+	def setJuegoActual juego
+		@juegoActual = juego
+	end
+	def getJuegoActual
+		return @juegoActual
+	end	
 
 	def tirarDados
 		if @dadosPrueba == nil
@@ -103,24 +111,31 @@ class Generala
 
 	
 	def verificarJuego
+		setPuntoMano 0
+		setJuegoActual "No hay Juego"
 		if getIsEscalera && @juego[9] == false
 				setPuntoMano 25
 				acumularPuntos
+				setJuegoActual "Hay Escalera"
 		end
 		if getIsFull && @juego[6] == false
 				setPuntoMano 35
 				acumularPuntos
+				setJuegoActual "Hay Full"
 		end
 		if getIsPoker && @juego[7] == false
 				setPuntoMano 45
 				acumularPuntos
+				setJuegoActual "Hay Poker"
 		end
 		if getIsGenerala && @juego[8] == false
 				setPuntoMano 60
 				acumularPuntos
+				setJuegoActual "Hay Generala"
 		end
-	end
 
+	end
+	
 
 
 end
