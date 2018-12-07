@@ -19,5 +19,7 @@ When(/^Tira dados y sale (\d+) (\d+) (\d+) (\d+) (\d+)$/) do |arg1, arg2, arg3, 
   click_button("Tirar dados")
 end
 
-
-
+Then(/^debo ver suma puntos en poker$/) do
+  text = "<td>Poker</td><td>45</td>"
+  last_response.body.should =~ /#{text}/m
+end

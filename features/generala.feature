@@ -39,6 +39,11 @@ Given llego al inicio
 When Tira dados y sale 1 2 2 2 2 
 Then debo ver "Puntaje acumulado: 45"
 
+Scenario: Detecta Poker y suma puntos
+Given llego al inicio
+When Tira dados y sale 1 2 2 2 2 
+Then debo ver suma puntos en poker
+
 
 
  

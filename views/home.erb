@@ -1,4 +1,4 @@
-<h1 style="text-align:center;fontStyle:monospace;">Generala</h1>
+<h1 style="text-align:center;fontStyle:monospace;">El juego de la Generala</h1>
 <form method="post" action="/tirardados" >
 	<ul style="list-style-type: none;display: inline-flex;">
 		<%
@@ -7,60 +7,107 @@
 		<% end %>
 	</ul>
 	<% if @@generala.getDados != [] %>
-		<p><%= @juego %>  
+		<p><%= @@generala.getJuegoActual %>  
 		<p>Puntaje mano: <%= @@generala.getPuntoMano %> 
-	<% end %>
+	<% end %>	
   <p><input type="submit" value="Tirar dados" style="padding: 5px;background-color: #66a2c8;border-radius: 7%;font-size: larger;
 font-weight: bold;color: white;cursor: pointer;"/ >
-
+</form>
+<% if @@generala.getDados != [] %>
+	<form  method="post" action="/seleccionardados" >
+		<ul style="list-style-type: none;">
+		   <% @selecciones.each do |item| %>	
+			<% if item != "-" %>		
+				<%= item %>
+			<%end%>
+		   <%end%>
+		</ul>
+		<p><input type="submit" value="Seleccionar dados" style="padding: 5px;background-color: #66a2c8;border-radius: 7%;font-size: larger;
+		font-weight: bold;color: white;cursor: pointer;"/ >
+	</form>
+<% end %>
   <% if @@generala.getDados != [] %>
   	<p>Puntaje acumulado: <%= @@generala.getPuntosAcumulados %> 		
   <% end %>
 
-	<% if false %>
+	<% if @@generala.getDados != [] %>
 		<p><table>
 			<tr>
-				<td>Poker</td>
-				<td><% if @@generala.getJuegoCompleto[7] %>
-							*  
-							<% else %>
+				<td>1</td>
+				<td><% if @@generala.getJuegoCompleto[0] == 0 %>
 							- 
+							<% else %>
+							<%= @@generala.getJuegoCompleto[0] %>
 						<% end %></td>
 			</tr>
 			<tr>
-				<td>Full</td>
-				<td><% if @@generala.getJuegoCompleto[6] %>
-							*  
+				<td>2</td>
+				<td><% if @@generala.getJuegoCompleto[1] == 0 %>
+							-  
 							<% else %>
-							- 
+							<%= @@generala.getJuegoCompleto[1]  %>
+						<% end %></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td><% if @@generala.getJuegoCompleto[2]  == 0%>
+							-  
+							<% else %>
+							<%= @@generala.getJuegoCompleto[2]  %>
+						<% end %></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td><% if @@generala.getJuegoCompleto[3]  == 0%>
+							-  
+							<% else %>
+							<%= @@generala.getJuegoCompleto[3]  %>
+						<% end %></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td><% if @@generala.getJuegoCompleto[4]  == 0%>
+							-  
+							<% else %>
+						<%= @@generala.getJuegoCompleto[4]  %>
+						<% end %></td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td><% if @@generala.getJuegoCompleto[5]  == 0%>
+							-  
+							<% else %>
+							<%= puts @@generala.getJuegoCompleto[5]  %>
+						<% end %></td>
+			</tr>			
+			<tr>
+				<td>Full</td>
+				<td><% if @@generala.getJuegoCompleto[6]  == 0%>
+							-  
+							<% else %>
+							<%= @@generala.getJuegoCompleto[6]  %>
 						<% end %></td>
 			</tr>
 			<tr>
 				<td>Escalera</td>
-				<td><% if @@generala.getJuegoCompleto[9] %>
-							*  
+				<td><% if @@generala.getJuegoCompleto[9]  == 0%>
+							-  
 							<% else %>
-							- 
+							<%= @@generala.getJuegoCompleto[9]  %>
 						<% end %></td>
 			</tr>
 			<tr>
 				<td>Generala</td>
-				<td><% if @@generala.getJuegoCompleto[8] %>
-							*  
+				<td><% if @@generala.getJuegoCompleto[8]  == 0%>							-  
 							<% else %>
-							- 
+							<%= @@generala.getJuegoCompleto[8]  %>
 						<% end %></td>
 			</tr>
 			<tr>
-				<td>Generala Serv</td>
-				<td><% if @@generala.getJuegoCompleto[7] %>
-							*  
-							<% else %>
-							- 
-						<% end %></td>
+				<td>Poker</td><td><% if @@generala.getJuegoCompleto[7]  == 0%>-<% else %><%=@@generala.getJuegoCompleto[7]%><% end %></td>
 			</tr>
 		</table>
 	<% end %>
-</form>
+
 
 
