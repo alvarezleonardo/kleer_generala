@@ -130,19 +130,19 @@ class Generala
 				setJuegoActual "Hay Escalera"
 		end
 		if getIsFull && @juego[6] == 0
-				@juego[6] = 25
+				@juego[6] = 35
 				setPuntoMano 35
 				acumularPuntos
 				setJuegoActual "Hay Full"
 		end
 		if getIsPoker && @juego[7] == 0
-				@juego[7] = 25
+				@juego[7] = 45
 				setPuntoMano 45
 				acumularPuntos
 				setJuegoActual "Hay Poker"
 		end
 		if getIsGenerala && @juego[8] == 0
-				@juego[8] = 25
+				@juego[8] = 60
 				setPuntoMano 60
 				acumularPuntos
 				setJuegoActual "Hay Generala"

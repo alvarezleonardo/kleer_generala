@@ -133,6 +133,20 @@ it "Tirada de dados y verificar puntos acumulados" do
 	end
 
 
+it "Verificamos que el juego de al tocar las combinaciones de numero y jugadas" do
+		juego = Generala.new
+		juego.setDados [4, 2, 3, 4, 5]
+		juego.tirarDados
+		juego.setDadoSelecionado 4
+		juego.setDados [4, 4, 4, 4, 5]
+		juego.tirarDados
+		juego.setDados [4, 4, 4, 5, 5]
+		juego.tirarDados
+		juego.setDados [4, 4, 4, 4, 4]
+		juego.tirarDados
+		expect( juego.getJuegoCompleto ).to eq [0, 0, 0, 8, 0, 0, 35, 45, 60, 0]
+	
+	end
 
 end
 
