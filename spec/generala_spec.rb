@@ -66,5 +66,42 @@ describe "Partido Generala" do
 	end
 
 
+	it "Tirada de dados y verificar puntos mano escalera" do
+		juego = Generala.new
+		juego.setDados [1, 2, 3, 4, 5]
+		juego.tirarDados
+		expect( juego.getPuntoMano ).to eq 25
+	end
+
+it "Tirada de dados y verificar puntos mano full" do
+		juego = Generala.new
+		juego.setDados [1, 1, 2, 2, 2]
+		juego.tirarDados
+		expect( juego.getPuntoMano ).to eq 35
+	end
+
+it "Tirada de dados y verificar puntos mano poker" do
+		juego = Generala.new
+		juego.setDados [2, 3, 2, 2, 2]
+		juego.tirarDados
+		expect( juego.getPuntoMano ).to eq 45
+	end
+
+it "Tirada de dados y verificar puntos mano generala" do
+		juego = Generala.new
+		juego.setDados [1, 1, 1, 1, 1]
+		juego.tirarDados
+		expect( juego.getPuntoMano ).to eq 60
+	end
+
+it "Tirada de dados y verificar puntos acumulados" do
+		juego = Generala.new
+		juego.setDados [1, 1, 1, 1, 1]
+		juego.tirarDados
+	  juego.setDados [1, 1, 1, 1, 5]
+		juego.tirarDados
+		expect( juego.getPuntosAcumulados ).to eq 105
+	end
+
 end
 
