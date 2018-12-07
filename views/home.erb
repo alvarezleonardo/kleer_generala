@@ -7,7 +7,11 @@
 		<% end %>
 	</ul>
   <p><%= @juego %>
-	<input type="submit" value="Tirar dados"/>
+  <% if @@generala.getDados != [] %>
+	<p>Puntaje mano: 30
+  	<p>Puntaje acumulado: 120 
+  <% end %>
+    <p><input type="submit" value="Tirar dados"/>
 </form>
 
 
