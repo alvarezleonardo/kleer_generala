@@ -1,7 +1,8 @@
 class Generala
-	def initialize 
+	def initialize
 		@dados = []
-		@puntos = 0
+		@dadosPrueba = nil
+		@@puntos = 0
 	end
 	
 	def getDados
@@ -10,7 +11,12 @@ class Generala
 			
 	
 	def tirarDados
-		@dados = [rand(6) + 1, rand(6) + 1, rand(6) + 1, rand(6) + 1, rand(6) + 1]
+		if @dadosPrueba == nil
+			@dados = [rand(6) + 1, rand(6) + 1, rand(6) + 1, rand(6) + 1, rand(6) + 1]
+		else 
+			@dados = @dadosPrueba
+			@dadosPrueba = nil		
+		end 
 		return getDados
 	end
 	def getDadosOrdenados
@@ -29,7 +35,7 @@ class Generala
 	end
 
 	def setDados dadosPrueba
-		@dados = dadosPrueba
+		@dadosPrueba = dadosPrueba
 	end
 
 	def getIsPoker
@@ -75,6 +81,9 @@ class Generala
 				end
 				oldDado = elemento
 			end
+			if ok == true
+				
+			end 			
 			return ok
 	end
 
