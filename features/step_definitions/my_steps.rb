@@ -15,7 +15,7 @@ When(/^jugador tira dados$/) do
 end
 
 When(/^Tira dados y sale (\d+) (\d+) (\d+) (\d+) (\d+)$/) do |arg1, arg2, arg3, arg4, arg5|
-  @@generala.setDados [arg1, arg2, arg3, arg4, arg5]
+  @@generala.setDados [arg1.to_i, arg2.to_i, arg3.to_i, arg4.to_i, arg5.to_i]
   click_button("Tirar dados")
 end
 
