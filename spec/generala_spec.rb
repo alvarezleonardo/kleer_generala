@@ -103,5 +103,36 @@ it "Tirada de dados y verificar puntos acumulados" do
 		expect( juego.getPuntosAcumulados ).to eq 105
 	end
 
+	it "Selección  dados debe ser un array de 6" do
+		juego = Generala.new
+		juego.setDados [4, 2, 3, 4, 5]
+		juego.tirarDados
+		expect( juego.getSeleccionDado).to be_an_instance_of(Array) 
+		expect( juego.getSeleccionDado.length ).to eq 6
+	end
+
+
+	it "Verificamos que cuente bien los numeros" do
+		juego = Generala.new
+		juego.setDados [4, 2, 3, 4, 5]
+		juego.tirarDados
+		expect( juego.getSeleccionDado).to eq [0, 1, 1, 2, 1, 0]
+	
+	end
+
+	it "Verificamos que cuente bien los numeros si ya suamos uno" do
+		juego = Generala.new
+		juego.setDados [4, 2, 3, 4, 5]
+		juego.tirarDados
+		expect( juego.getSeleccionDado).to eq [0, 1, 1, 2, 1, 0]
+		juego.setDadoSelecionado 4
+		juego.setDados [4, 2, 3, 4, 5]
+		juego.tirarDados
+		expect( juego.getSeleccionDado ).to eq [0, 1, 1, 0, 1, 0]
+	
+	end
+
+
+
 end
 

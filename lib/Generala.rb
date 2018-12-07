@@ -1,11 +1,12 @@
 class Generala
 	def initialize
 		@dados = []
-		@juego = [false, false, false, false, false, false, false, false, false, false]
+		@juego = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 		@dadosPrueba = nil
 		@puntos = 0
 		@puntosMano = 0
 		@juegoActual = ""
+		@analisisDado = [0,0,0,0,0,0]
 	end
 	
 	def getDados
@@ -16,6 +17,12 @@ class Generala
 	end		
 	def setDados dadosPrueba
 		@dadosPrueba = dadosPrueba
+	end
+	def getPuntosPorDado dado
+		return @analisisDado[dado - 1] * dado
+	end
+	def setDadoSelecionado dado
+		@juego[dado - 1]	= @analisisDado[dado - 1] * dado
 	end
 
 	def setPuntoMano punto
@@ -37,7 +44,10 @@ class Generala
 	def getJuegoActual
 		return @juegoActual
 	end	
-
+	
+	def getSeleccionDado
+		return @analisisDado
+	end 
 	def tirarDados
 		if @dadosPrueba == nil
 			@dados = [rand(6) + 1, rand(6) + 1, rand(6) + 1, rand(6) + 1, rand(6) + 1]
@@ -113,25 +123,39 @@ class Generala
 	def verificarJuego
 		setPuntoMano 0
 		setJuegoActual "No hay Juego"
-		if getIsEscalera && @juego[9] == false
+		if getIsEscalera && @juego[9] == 0
+				@juego[9] = 25
 				setPuntoMano 25
 				acumularPuntos
 				setJuegoActual "Hay Escalera"
 		end
-		if getIsFull && @juego[6] == false
+		if getIsFull && @juego[6] == 0
+				@juego[6] = 25
 				setPuntoMano 35
 				acumularPuntos
 				setJuegoActual "Hay Full"
 		end
-		if getIsPoker && @juego[7] == false
+		if getIsPoker && @juego[7] == 0
+				@juego[7] = 25
 				setPuntoMano 45
 				acumularPuntos
 				setJuegoActual "Hay Poker"
 		end
-		if getIsGenerala && @juego[8] == false
+		if getIsGenerala && @juego[8] == 0
+				@juego[8] = 25
 				setPuntoMano 60
 				acumularPuntos
 				setJuegoActual "Hay Generala"
+		end
+
+		if getPuntoMano == 0
+				(0..5).each do |x|	
+					if @juego[x] == 0	
+						@analisisDado[x] = getCantDado (x + 1)
+					else
+						@analisisDado[x] = 0
+					end
+			end		
 		end
 
 	end
