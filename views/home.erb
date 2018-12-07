@@ -1,4 +1,4 @@
-<h1>Generala</h1>
+<h1 style="text-align:center;fontStyle:monospace;">Generala</h1>
 <form method="post" action="/tirardados" >
 	<ul style="list-style-type: none;display: inline-flex;">
 		<%
@@ -10,7 +10,8 @@
 		<p><%= @juego %>  
 		<p>Puntaje mano: <%= @@generala.getPuntoMano %> 
 	<% end %>
-  <p><input type="submit" value="Tirar dados"/>
+  <p><input type="submit" value="Tirar dados" style="padding: 5px;background-color: #66a2c8;border-radius: 7%;font-size: larger;
+font-weight: bold;color: white;cursor: pointer;"/ >
 
   <% if @@generala.getDados != [] %>
   	<p>Puntaje acumulado: <%= @@generala.getPuntosAcumulados %> 		
